@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nifty xmlns="http://nifty-gui.sourceforge.net/nifty-1.3.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://nifty-gui.sourceforge.net/nifty-1.3.xsd http://nifty-gui.sourceforge.net/nifty-1.3.xsd">
+    
+    <useStyles filename="nifty-default-styles.xml"/>
+    <useControls filename="nifty-default-controls.xml"/>
+    
+    <screen id="start" controller="mygame.MainMenu">
+       <layer childLayout='center'>
+           <image filename='Interface/bg.jpg' width='100%' height='100%'/>
+       </layer>
+       
+       <layer childLayout='vertical'>
+           <panel childLayout='vertical' width='100%' height='70%' backgroundColor='#f000'>
+               
+           </panel>
+           <panel childLayout='vertical' width='100%' height='50%' backgroundColor='#fff0'>
+               <control name='button' label='New game' align='center'>
+                    <interact onClick='newGame()'/>
+               </control>
+               <control name='button' label='Option' align='center'>
+                    <interact onClick='option()'/>
+               </control>
+               <control name='button' label='About us'align='center'>
+               </control>
+               <control name='button' label='exit' align='center'>
+               </control>
+           </panel>
+       </layer>
+    </screen>
+    
+    <screen id='game' controller="mygame.MainMenu">
+        <layer childLayout='horizontal' width='100%' height='20%'>
+            <panel width='10%' height='10%' childLayout='vertical' align='right' valign='bottom'>
+                <interact onClick='summonRed()'/>
+                <image filename='Interface/red.jpg' width='100%' height='100%' align='right'/>
+            </panel>
+            
+            <panel width='10%' height='10%' childLayout='vertical' align='right' valign='bottom'>
+                <interact onClick='summonGreen()'/>
+                <image filename='Interface/green.jpg' width='100%' height='100%' align='right'/>
+            </panel>
+            
+            <panel width='10%' height='10%' childLayout='vertical' align='right' valign='bottom'>
+                <interact onClick='playing()'/>
+                <image filename='Interface/game.jpg' width='100%' height='100%' align='right'/>
+            </panel>
+        </layer>
+    </screen>
+    
+    <screen id='action' controller="mygame.PlayingController">
+        <layer childLayout='horizontal' width='100%' height='20%'>
+            <panel width='5%' height='5%' childLayout='vertical' align='right' valign='bottom'>
+                <interact onClick='moveMenu()'/>
+                <image filename='Interface/Move.png' width='100%' height='100%' align='right'/>
+            </panel>
+            
+            <panel width='5%' height='5%' childLayout='vertical' align='right' valign='bottom'>
+                <interact onClick='attackMenu()'/>
+                <image filename='Interface/Attack.png' width='100%' height='100%' align='right'/>
+            </panel>
+            
+            <panel width='5%' height='5%' childLayout='vertical' align='right' valign='bottom'>
+                <interact onClick='healMenu()'/>
+                <image filename='Interface/Skill.png' width='100%' height='100%' align='right'/>
+            </panel>
+            
+            <panel width='5%' height='5%' childLayout='vertical' align='right' valign='bottom'>
+                <interact onClick='endOfMenu()'/>
+                <image filename='Interface/Exit.png' width='100%' height='100%' align='right'/>
+            </panel>
+        </layer>
+    </screen>
+    
+    <screen id='none' controller="mygame.PlayingController">
+         <layer childLayout='horizontal' width='100%' height='20%'>
+            <panel width='5%' height='5%' childLayout='vertical' align='right' valign='bottom'>
+                <interact onClick='endOfPhase()'/>
+                <image filename='Interface/Exit.png' width='100%' height='100%' align='right'/>
+            </panel>
+        </layer>
+    </screen>
+    
+    <screen id="option" controller="mygame.OptionMenu">
+       <layer childLayout='center'>
+           <image filename='Interface/bg.jpg' width='100%' height='100%'/>
+       </layer>
+       
+       <layer childLayout='vertical'>
+           <panel width='100%' height='70%' backgroundColor='#f000'/>
+           <panel childLayout='vertical' width='100%' height='50%' backgroundColor='#fff0'>
+               <control name='button' label='FullScreen' align='center'>
+                    <interact onClick='fullScreen()'/>
+               </control>
+               <control name='button' label='NormalScreen' align='center'>
+                   <interact onClick='normalScreen()'/>
+               </control>
+               <control name='button' label='Back' align='center'>
+                   <interact onClick='back()'/>
+               </control>
+           </panel>
+       </layer>
+    </screen>
+</nifty>
